@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&display=swap');
+
+body {
+  width: 256px;
+  height: 256px;
+  margin: 0;
+  padding: 0;
+  background-color: #15181C;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+}
+.header img {
+  margin-left: 6px;
+  width: 24px;
+  height: 24px;
+}
+h1 {
+  color: white;
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
+#user-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  margin-top: 12px;
+}
+#user-input p {
+  color: #aaaaaa;
+  font-size: 13px;
+  margin: 0;
+  margin-bottom: -6px;
+}
+#user-input p.warning {
+  color: #FF8000;
+  font-size: 11px;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+#username {
+  background-color: #1e2228;
+  border: 1px solid #2e3238;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  padding: 8px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+#username::placeholder {
+  color: #555;
+}
+#username:focus {
+  border-color: #40bcf4;
+}
+#submit-btn {
+  background-color: #00E054;
+  border: none;
+  border-radius: 6px;
+  color: #15181C;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 9px;
+  width: 100%;
+}
+#submit-btn:hover {
+  background-color: #00F060;
+}
