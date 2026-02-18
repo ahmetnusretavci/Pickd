@@ -6,6 +6,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: #15181C;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -77,4 +79,12 @@ h1 {
 }
 #submit-btn:hover {
   background-color: #00F060;
+}
+
+footer {
+  color: #555;
+  font-size: 10px;
+  text-align: center;
+  margin-top: auto;
+  padding-bottom: 6px;
 }
