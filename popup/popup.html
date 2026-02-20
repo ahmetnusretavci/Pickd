@@ -8,13 +8,19 @@
       <h1>Pickd</h1>
     </div>
 
-    <div id="user-input">
-      <p>Enter your Letterboxd username to get a random film from your watchlist.</p>
-      <p class="warning">Your watchlist must be public</p>
-      <input type="text" id="username" placeholder="eg: noirple" />
-      <button id="submit-btn">Let's pick</button>
+    <!-- State 1: User is NOT on watchlist page -->
+    <div id="not-on-watchlist">
+      <p>You should be on your watchlist!</p>
+      <input type="text" id="username" placeholder="Enter your Letterboxd username" />
+      <button id="go-btn">Go to the watchlist</button>
+    </div>
+
+    <!-- State 2: User IS on watchlist page -->
+    <div id="on-watchlist" class="hidden">
+      <button id="pick-btn">Pick a film</button>
     </div>
 
     <footer>Une production de Noirple</footer>
+    <script src="popup.js"></script>
   </body>
 </html>
