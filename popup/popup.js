@@ -31,6 +31,8 @@ function sendMessage() {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     chrome.tabs.sendMessage(tabs[0].id, { action: 'pick' }, (response) => {
       document.getElementById('result').textContent = response.film;
+      document.getElementById('on-watchlist').classList.add('hidden');
+      document.getElementById('film-result').classList.remove('hidden');
     });
   });
 }
