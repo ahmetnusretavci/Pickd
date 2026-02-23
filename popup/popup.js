@@ -30,9 +30,14 @@ document.getElementById('pick-btn').addEventListener('click', sendMessage);
 function sendMessage() {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     chrome.tabs.sendMessage(tabs[0].id, { action: 'pick' }, (response) => {
-      document.getElementById('result').textContent = response.film;
       document.getElementById('on-watchlist').classList.add('hidden');
-      document.getElementById('film-result').classList.remove('hidden');
+      document.getElementById('result-poster').src = response.film.poster;
+      document.getElementById('result-poster').alt = response.film.name;
+      document.getElementById('result-name').textContent = response.film.name;
+      document.getElementById('result-link').href = `https://letterboxd.com${response.film.link}`;
+      document.getElementById('result').classList.remove('hidden');
     });
   });
 }
+
+document.getElementById('pick-again-btn').addEventListener('click', sendMessage);

@@ -24,5 +24,8 @@
       "matches": ["https://letterboxd.com/*/watchlist/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; img-src 'self' https://a.ltrbxd.com https://letterboxd.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com"
+  }
 }
