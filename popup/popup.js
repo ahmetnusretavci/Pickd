@@ -23,3 +23,14 @@ document.getElementById('username').addEventListener('keydown', (e) => {
 });
 
 document.getElementById('username').focus();
+
+
+document.getElementById('pick-btn').addEventListener('click', sendMessage);
+
+function sendMessage() {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.tabs.sendMessage(tabs[0].id, { action: 'pick' }, (response) => {
+      document.getElementById('result').textContent = response.film;
+    });
+  });
+}
