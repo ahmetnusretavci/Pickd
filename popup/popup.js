@@ -1,22 +1,43 @@
 // State management
-chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
   const url = tabs[0].url;
 
   if (url.includes('letterboxd.com') && url.includes('/watchlist')) {
     document.getElementById('not-on-watchlist').classList.add('hidden');
     document.getElementById('on-watchlist').classList.remove('hidden');
+  } else {
+    const { username } = await chrome.storage.local.get('username');
+    if (username) {
+      document.getElementById('not-on-watchlist').classList.add('hidden');
+      document.getElementById('welcome-username').textContent = username;
+      document.getElementById('welcome-back').classList.remove('hidden');
+    }
   }
 });
 
 // Go to watchlist
-function goToWatchlist() {
+async function goToWatchlist() {
   const username = document.getElementById('username').value;
   if (username) {
+    await chrome.storage.local.set({ username });
     chrome.tabs.create({ url: `https://letterboxd.com/${username}/watchlist/` });
   }
 }
 
 document.getElementById('go-btn').addEventListener('click', goToWatchlist);
+
+document.getElementById('welcome-go-btn').addEventListener('click', async () => {
+  const { username } = await chrome.storage.local.get('username');
+  if (username) {
+    chrome.tabs.create({ url: `https://letterboxd.com/${username}/watchlist/` });
+  }
+});
+
+document.getElementById('change-user-btn').addEventListener('click', () => {
+  document.getElementById('welcome-back').classList.add('hidden');
+  document.getElementById('not-on-watchlist').classList.remove('hidden');
+  document.getElementById('username').focus();
+});
 
 document.getElementById('username').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') goToWatchlist();
