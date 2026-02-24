@@ -121,6 +121,7 @@ h1 {
   flex-direction: column;
   gap: 10px;
   padding: 12px 12px 0;
+  min-height: 160px;
 }
 #result-name {
   color: white;
@@ -142,6 +143,7 @@ h1 {
   gap: 4px;
   padding: 7px;
   text-decoration: none;
+  margin-top: auto;
 }
 #result-link .material-icons {
   font-size: 14px;

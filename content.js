@@ -1,7 +1,7 @@
 function getPosterUrl(img) {
   if (!img) return null;
   // Lazy-loaded images may use data-src or srcset instead of src
-  let url = img.dataset.src || img.src || img.getAttribute('data-src');
+  let url = img.dataset.src || img.src;
   if (!url && img.srcset) {
     url = img.srcset.split(',')[0].trim().split(/\s+/)[0];
   }

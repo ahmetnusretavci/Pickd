@@ -24,7 +24,6 @@ document.getElementById('username').addEventListener('keydown', (e) => {
 
 document.getElementById('username').focus();
 
-
 document.getElementById('pick-btn').addEventListener('click', sendMessage);
 
 const resultPoster = document.getElementById('result-poster');
