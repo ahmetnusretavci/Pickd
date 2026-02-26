@@ -21,6 +21,19 @@ body {
   width: 24px;
   height: 24px;
 }
+.header .github-link {
+  margin-left: auto;
+  margin-right: 6px;
+  display: flex;
+}
+.header .github-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
+}
+.header .github-link:hover .github-icon {
+  opacity: 1;
+}
 h1 {
   color: white;
   font-family: 'Fraunces', serif;
